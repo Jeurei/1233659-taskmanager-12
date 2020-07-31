@@ -1,8 +1,8 @@
-* text eol=lf
+*.log*
 
-*.png binary
-*.jpg binary
-*.jpeg binary
-*.webp binary
-*.woff binary
-*.woff2 binary
+node_modules/
+
+build/
+
+public/bundle.js
+public/bundle.js.map

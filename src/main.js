@@ -1,11 +1,11 @@
 const QUANTITY_OF_TASKS = 3;
 
-import {createSiteControls} from './view/siteControls.js';
-import {createSiteFilters} from './view/siteFilters.js';
-import {createSiteSort} from './view/siteSort.js';
-import {createSiteTask} from './view/siteTask.js';
-import {createTaskEdit} from './view/taskEdit.js';
-import {createSiteLoadMoreButton} from './view/loadMoreButton.js';
+import {createSiteControls} from './view/site-controls.js';
+import {createSiteFilters} from './view/site-filters.js';
+import {createSiteSort} from './view/site-sort.js';
+import {createSiteTask} from './view/site-task.js';
+import {createTaskEdit} from './view/task-edit.js';
+import {createSiteLoadMoreButton} from './view/load-more-button.js';
 
 
 const render = (container, template, place) => {

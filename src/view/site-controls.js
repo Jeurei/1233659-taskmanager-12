@@ -1,4 +1,6 @@
-export const createSiteControls = () => {
+import {createElement} from '../utils.js';
+
+const createSiteControls = () => {
 
   return (
     `<section class="control__btn-wrap">
@@ -31,3 +33,28 @@ export const createSiteControls = () => {
   </section>`
   );
 };
+
+
+export default class SiteControls {
+
+  constructor() {
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createSiteControls();
+  }
+
+  getElement() {
+
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}

@@ -1,4 +1,4 @@
-import {getRandomInteger} from '../utils.js';
+import {getRandomInteger} from '../view/utils/common.js';
 import {COLORS} from '../const.js';
 
 const getRandomColor = () => {

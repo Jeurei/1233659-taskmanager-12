@@ -1,4 +1,5 @@
-import {isTaskExpired, isTaskRepeating, humanizeTaskDueDate, createElement} from "../utils";
+import AbstractView from './abstract.js';
+import {isTaskExpired, isTaskRepeating, humanizeTaskDueDate} from "./utils/task.js";
 
 const createSiteTask = (task) => {
   const {color, description, dueDate, repeating, isArchive, isFavorite} = task;
@@ -67,11 +68,11 @@ const createSiteTask = (task) => {
   );
 };
 
-export default class SiteTask {
-
+export default class SiteTask extends AbstractView {
   constructor(task) {
+    super();
     this._task = task;
-    this._element = null;
+    this._editClickHandler = this._editClickHandler.bind(this);
   }
 
   getTemplate() {
@@ -79,16 +80,13 @@ export default class SiteTask {
     return createSiteTask(this._task);
   }
 
-  getElement() {
-
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
+  _editClickHandler(evt) {
+    evt.preventDefault();
+    this._callback.click();
   }
 
-  removeElement() {
-    this._element = null;
+  setEditClickHandler(callback) {
+    this._callback.click = callback;
+    this.getElement().addEventListener(`click`, this._editClickHandler);
   }
 }
